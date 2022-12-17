@@ -55,23 +55,23 @@
       <h1 class="logo me-auto me-lg-0"><a href="index.html">Jordi<span>.</span></a></h1>
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="index.html">Home</a></li>
-          <li><a class="nav-link scrollto" href="index.html">Educación</a></li>          
-          <li><a class="nav-link scrollto" href="index.html">Certificados</a></li>
-          <li><a class="nav-link scrollto " href="index.html">E-Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="index.html">Acerca de mi </a></li>
-          <li><a class="nav-link scrollto" href="index.html">Redes</a></li>
-          <li><a class="nav-link scrollto" href="index.html">Contacto</a></li>
+          <li><a class="nav-link scrollto active" href="indexEN.html">Home</a></li>
+          <li><a class="nav-link scrollto" href="indexEN.html">Education</a></li>          
+          <li><a class="nav-link scrollto" href="indexEN.html">Certificates</a></li>
+          <li><a class="nav-link scrollto " href="indexEN.html">E-Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="indexEN.html">About Me</a></li>
+          <li><a class="nav-link scrollto" href="indexEN.html">Social Media</a></li>
+          <li><a class="nav-link scrollto" href="indexEN.html">Contact</a></li>
           <li class="dropdown"><a>&#127760;<i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">&#127462;&#127479;</a></li>
-              <li><a href="./portfolio-details8EN.html">&#127482;&#127480;</a></li>
-              <li class="dropdown"><a href="#"><span>Más Idiomas</span> <i class="bi bi-chevron-right"></i></a>
+              <li><a href="/portfolio-details1.html">&#127462;&#127479;</a></li>
+              <li><a href="#">&#127482;&#127480;</a></li>
+              <li class="dropdown"><a href="#"><span>More languges</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="#">No hay más idiomas por el momento, Lo siento</a></li>
+                  <li><a href="#">Don't have more languages yes, sorry.</a></li>
                 </ul>
               </li>
-              <li><a href="#contact">Sugerencias</a>
+              <li><a href="#contact">Suggestions</a>
               </li>
             </ul>
           </li>
@@ -88,10 +88,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Detalle de Proyecto</h2>
+          <h2>Portfolio Details</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Detalles de portfolio</li>
+            <li>Portfolio Details</li>
           </ol>
         </div>
 
@@ -101,74 +101,34 @@
     <!-- ======= Portfolio Details Section ======= -->
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
+
         <div class="row gy-4">
 
           <div class="col-lg-8">
-            <div class="container-navigation8">
-              <div class="navigation">
-                <ul>
-                  <li class="list active">
-                    <a href="#">
-                      <span class="icon">
-                          <ion-icon name="home-outline"></ion-icon>
-                      </span>
-                      <span class="text">Home</span>
-                    </a>
-                  </li>
-                  <li class="list">
-                    <a href="#">
-                      <span class="icon">
-                          <ion-icon name="person-outline"></ion-icon>
-                      </span>
-                      <span class="text">Profile</span>
-                    </a>
-                  </li>
-                  <li class="list">
-                    <a href="#">
-                      <span class="icon">
-                        <ion-icon name="chatbox-outline"></ion-icon>
-                      </span>
-                      <span class="text">Message</span>
-                    </a>
-                  </li>
-    
-                  <li class="list">
-                      <a href="#">
-                        <span class="icon">
-                          <ion-icon name="camera-outline"></ion-icon>
-                        </span>
-                        <span class="text">Photos</span>
-                      </a>
-                  </li>
-              
-                  <li class="list">
-                    <a href="#">
-                      <span class="icon">
-                        <ion-icon name="settings-outline"></ion-icon>
-                      </span>
-                      <span class="text">Settings</span>
-                    </a>
-                  </li>
-                  <div class="indicator"></div>
-                </ul>
-              </div>
+            <div class="container-btn-aguado">
+              <a href="#">
+                  <span> Accept</span>
+                  <div class="liquid"></div>
+              </a>
             </div>
+            
           </div>
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3>Navegador dinámico</h3>
+              <h3><em>Liquid button:</em></h3>
               <ul>
-                <li><strong>Categoria</strong>: Web design</li>
-                <li><strong>Lenguajes</strong>: CSS y HTML</li>
-                <li><strong>Fecha</strong>: nov, 2022</li>
+                <li><strong>Category</strong>: Web design</li>
+                <li><strong>Date</strong>: nov,2022</li>
+                <li><strong>languages:</strong>: CSS, HTML</li>
               </ul>
             </div>
             <div class="portfolio-description">
-              <h2>Detalles.</h2>
+              <h2><em>Details,</em></h2>
               <p>
-                Otro gran ejemplo de que con CSS y HTML se puede lograr una excelente experiencia de usuario al navegar entre las diferentes secciones de una página.
-              </p>
+                This is a simulation of liquid. Great to add some styles. 
+                It's pure css and html coding. The animation has been made with keyframes.
+               </p>
             </div>
           </div>
 
@@ -295,19 +255,17 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
   <script>
-    const list = document.querySelectorAll('.list');
-    function activeLink(){
-        list.forEach((item) => 
-        item.classList.remove('active'));
-        this.classList.add('active');
+    let toggle = document.querySelector('.toggle');
+    let menu = document.querySelector('.menu');
+    toggle.onclick= function(){
+        menu.classList.toggle('active');
     }
-    list.forEach((item) =>
-    item.addEventListener('click',activeLink));
 </script>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+  
 </body>
 
 </html>
