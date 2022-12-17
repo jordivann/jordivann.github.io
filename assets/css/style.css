@@ -814,7 +814,7 @@ section {
 
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
-  color: var(--clr-black-15);
+  color: var(--clr-white-f);
   background: var(--clr-main);
 }
 
