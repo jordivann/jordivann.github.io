@@ -43,15 +43,18 @@
     <div class="container d-flex align-items-center justify-content-lg-between">
 
       <h1 class="logo me-auto me-lg-0"><a href="index.html">Jordi<span>.</span></a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/Jordivannordenlogo.ico"  alt="" class="img-fluid"></a> -->
-      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/Jordilogo3" type="png"  alt="" class="img-fluid"></a> -->
+
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#educacion">Educación</a></li>          
           <li><a class="nav-link scrollto" href="#certificado">Certificados</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">E-Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="#educacion">Educación</a></li> 
+          <li class="dropdown"><a href='#' ><span>E-portfolio</span></a>
+            <ul>
+              <li><a href="#proyectos">Proyectos Recientes</a></li>
+              <li><a href="#portfolio">Portfolio componetes</a></li>
+            </ul>
+          </li>         
           <li><a class="nav-link scrollto" href="#about">Acerca de mi </a></li>
           <li><a class="nav-link scrollto" href="#redes">Redes</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
@@ -70,23 +73,7 @@
           </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-      <!-- 
-        Argentina = &#127462;&#127479; 
-        España = &#127466;&#127462;
-        USA = &#127482;&#127480;
-        uk = &#127468;&#127463;
-       -->
-      <!-- <nav class="idioma">
-        <div class="dropdown">
-          <ul>
-            <li>espa</li>
-            <li>ingl</li>
-          </ul>
-        </div>
-      </nav> -->
-
+      </nav>
     </div>
   </header><!-- End Header -->
 
@@ -105,73 +92,13 @@
   </section><!-- End Hero -->
 
   <main id="main">
-
-    <!-- ======= DIPLOMAS Section ======= -->
-    <section id="educacion" class="features">
+    <!-- PROYECTOS MÁS RECIENTES -->
+    <section id="proyectos" class="services">
       <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>Educación</h2>
-        </div>
-
-
-        <div class="row">
-          <div class="image col-lg-6" style='background-image: url("assets/img/estudios.jpg");' data-aos="fade-right"></div>
-          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
-            <div class="icon-box mt-5 mt-lg-0" data-aos="zoom-in" data-aos-delay="150">
-              <i class="bx bx-code-block"></i>
-              <h4>Lic. Ciencias de la computación - FAMAF - UNC</h4>
-              <p>Córdoba, Argentina   ( 2022 - Actualidad )</p>
-            </div>
-            <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
-              <i class="bx bx-cube-alt"></i>
-              <h4>Ingeniería Mecánica Electricista - FCEFyN - UNC</h4>
-              <p>Córdoba, Argentina (2015 - (en pausa))</p>
-            </div>
-            <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
-              <i class="bx bx-bookmarks"></i>
-              <h4>Bachiller en ciencias y letras bilingue</h4>
-              <p>Escuela del sur - General Roca, Río Negro, Argentina  (2009 - 2014)</p>
-            </div>
-            <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
-              <i class="bx bx-receipt"></i>
-              <h4>First Certificate - Cambridge University</h4>
-              <p>Neuquén, Argentina (2014)</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End diploma Section -->
-
-    <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients">
-      <div class="container" data-aos="zoom-in">
-
-        <div class="clients-slider swiper">
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/clients/html5.png" height="210px" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/css.png" height="210px" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/js.png" height="210px" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/bootstrap.png" height="190px" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/python.png" height="210px" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/vuejs.png" height="210px" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/react.png" height="210px" class="img-fluid" alt=""></div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-    </section><!-- End Clients Section -->
-    
-
-    
-
-    <!-- ======= Certificados Section ======= -->
-    <section id="certificado" class="services">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <p>Proyectos y certificados</p>
-          <h2>Proyectos</h2>
+        <!-- proyectos -->
+        <div  class="section-title mt-2">
+          <h2>Proyectos recientes</h2>
+          <p>Proyectos</p>
         </div>
         <div class="row mb-3">
           <div class="col-12 align-items-stretch mt-4 " data-aos="zoom-in" data-aos-delay="100">
@@ -189,10 +116,16 @@
             
           </div>
         </div>
-
-        <!-- Certificados -->
+        <!-- FIN PROYECTS -->
+      </div>
+    </section>
+    
+    <!-- ======= Certificados Section ======= -->
+    <section id="certificado" class="services">
+      <div class="container" data-aos="fade-up">
         <div class="section-title">
-          <h2>Certificados</h2>
+          <h2>Certificates</h2>
+          <p>Certificados</p>
         </div>
 
         <div class="row">
@@ -285,9 +218,70 @@
             </div>
           </div>
         </div>
-
+        <hr/>
+        
       </div>
     </section><!-- End Services Section -->
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="clients-slider swiper">
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide"><img src="assets/img/clients/html5.png" height="210px" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/css.png" height="210px" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/js.png" height="210px" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/bootstrap.png" height="190px" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/python.png" height="210px" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/vuejs.png" height="210px" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="assets/img/clients/react.png" height="210px" class="img-fluid" alt=""></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Clients Section -->
+    
+
+    
+    
+    
+        <!-- ======= DIPLOMAS Section ======= -->
+        <section id="educacion" class="features">
+          <div class="container" data-aos="fade-up">
+            <div class="section-title">
+              <h2>Educación</h2>
+            </div>
+    
+    
+            <div class="row">
+              <div class="image col-lg-6" style='background-image: url("assets/img/image.png");' data-aos="fade-right"></div>
+              <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+                <div class="icon-box mt-5 mt-lg-0" data-aos="zoom-in" data-aos-delay="150">
+                  <i class="bx bx-code-block"></i>
+                  <h4>Lic. Ciencias de la computación - FAMAF - UNC</h4>
+                  <p>Córdoba, Argentina   ( 2022 - Actualidad )</p>
+                </div>
+                <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
+                  <i class="bx bx-cube-alt"></i>
+                  <h4>Ingeniería Mecánica Electricista - FCEFyN - UNC</h4>
+                  <p>Córdoba, Argentina (2015 - (en pausa))</p>
+                </div>
+                <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
+                  <i class="bx bx-bookmarks"></i>
+                  <h4>Bachiller en ciencias y letras bilingue</h4>
+                  <p>Escuela del sur - General Roca, Río Negro, Argentina  (2009 - 2014)</p>
+                </div>
+                <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
+                  <i class="bx bx-receipt"></i>
+                  <h4>First Certificate - Cambridge University</h4>
+                  <p>Neuquén, Argentina (2014)</p>
+                </div>
+              </div>
+            </div>
+    
+          </div>
+        </section><!-- End diploma Section -->
 
     <!-- ======= Cta Section ======= -->
     <section id="cta" class="cta">
@@ -302,7 +296,7 @@
 
         <div class="section-title">
           <h2>Portfolio</h2>
-          <p><em>Este es mi Portfolio</em></p>
+          <p><em>Portfolio componentes</em></p>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -567,7 +561,7 @@
           </div>
 
         </div>
-        <div class="col-12 order-3" >
+        <!-- <div class="col-12 order-3" >
           <hr>
           <p class="fst-italic">
             Leí que responder algúnas preguntas dan "pistas", por así decirlo, de cómo es una persona, así que tomé un par que me parecieron interesante:<br>
@@ -580,7 +574,7 @@
           <p>Yo creo que soy una persona que reflexiona bastante, intento escucharme para saber como me siento en distintos entornos, con distintas personas, en distintas situaciones. Intento cuidarme lo más posible, pero esto no quita que no me guste salir de mi <em>"zona de confort"</em>, ya que pienso que es una forma de aprendizaje para cualqiuera.
           Además de pensar como me siento yo, me gusta pensar en como <em>mi alrededor</em> se siente, y si puedo ayudar no dudo en hacerlo.</p>
 
-        </div>
+        </div> -->
 
       </div>
     </section><!-- End About Section -->
