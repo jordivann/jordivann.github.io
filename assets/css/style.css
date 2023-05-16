@@ -709,7 +709,104 @@ section {
 /*--------------------------------------------------------------
 # CERTIFICADOS
 --------------------------------------------------------------*/
+
+.conedor-proyecto-descripcion{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+
+    text-align:center;
+
+  }
+  .project-description h4 { 
+    color: var(--clr-secondary)
+  }
+
+  .project-description h6 {
+    color: #d7d6e0;
+  }
+  .project-description p{
+   color: #808080 
+  }
+  
+  @media (min-width: 768px) {
+    .conedor-proyecto-descripcion {
+      grid-template-columns: 3fr 2fr;
+    }
+  }
+  
+.project-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-box {
+  width:auto;
+  height: 100%;
+  display:flex;
+  border: 1px solid #ebebeb;
+  transition: all ease-in-out 0.3s;
+  background: var(--clr-white-f);
+
+  border-radius: 1.1em;
+  height:20em;
+
+  position:relative;
+}
+.project-box img{
+  object-fit: contain;
+  overflow: hidden;
+  height: 100%;
+  width:100%;
+  border-radius: 1.1em;
+
+}
+
+.project-box img:hover { 
+  filter: blur(2px);
+  transition: filter 0.3s ease-in-out;
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
+
+}
+.project-box:hover {
+  background:var(--clr-grey-bg);
+  border-color: var(--clr-white-f);
+  box-shadow: 0 5px 10px 3px  rgba(0, 0, 0, 0.6);
+  transform: translateY(-10px);
+}
+.arrow {
+  margin-left: 5px;
+  display: inline-block;
+  transform: rotate(-45deg);
+}
+.overlay-button { 
+  position:absolute; 
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  background-color:var(--clr-main);
+  color: #fff;
+  border: none;
+  border-radius:1em;
+  font-size:.7em;
+  font-weight:bold;
+  opacity:0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.project-box:hover .overlay-button {
+  opacity: 1;
+}
+.project-box:hover .overlay-button:hover {
+  background: var(--clr-secondary);
+  cursor:pointer;
+}
+
 .services .icon-box {
+  
   text-align: center;
   border: 1px solid #ebebeb;
   padding: 80px 20px;
