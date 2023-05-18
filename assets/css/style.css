@@ -712,11 +712,7 @@ section {
 /*--------------------------------------------------------------
 # CERTIFICADOS
 --------------------------------------------------------------*/
-.boton-fullscreen { 
-  border: solid 1px #fff; 
-  border-radius: 1rem;
-  padding: 2 2;
-}
+
 .conedor-proyecto-descripcion{
     display: grid;
     grid-template-columns: 1fr;
