@@ -456,6 +456,9 @@ h6 {
   background-size: cover;
   position: relative;
 }
+#hero .container h2 { 
+  color: var(--clr-secondary)
+}
 
 #hero:before {
   content: "";
