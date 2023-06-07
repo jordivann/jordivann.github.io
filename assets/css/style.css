@@ -713,7 +713,7 @@ section {
 # CERTIFICADOS
 --------------------------------------------------------------*/
 
-.conedor-proyecto-descripcion{
+.contedor-proyecto-descripcion{
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 20px;
@@ -733,7 +733,7 @@ section {
   }
   
   @media (min-width: 768px) {
-    .conedor-proyecto-descripcion {
+    .contedor-proyecto-descripcion {
       grid-template-columns: 3fr 2fr;
     }
   }
