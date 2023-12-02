@@ -69,8 +69,8 @@
             <li class="dropdown">
               <a href="#"><span>E-portfolio</span></a>
               <ul>
-                <li><a href="#proyectos">Proyectos Recientes</a></li>
-                <li><a href="#portfolio">Portfolio componetes</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#portfolio">Componetes</a></li>
               </ul>
             </li>
             <li><a class="nav-link scrollto" href="#about">Personal</a></li>
@@ -126,7 +126,7 @@
         <div class="container" data-aos="fade-up">
           <!-- proyectos -->
           <div class="section-title mt-2">
-            <h2>Proyectos recientes</h2>
+            <h2>Portfolio proyectos</h2>
             <p>Proyectos</p>
           </div>
           <div class="row mb-3">
@@ -135,16 +135,45 @@
               data-aos="zoom-in"
               data-aos-delay="100"
             >
+              <br />
+              <div class="contedor-proyecto-descripcion">
+                <div class="project-box">
+                  <img
+                    src="./assets/img/controlclientes.jpg"
+                    alt="Control de clientes"
+                  />
+                  <a
+                    href="https://controlclientes-2c48a.web.app/"
+                    target="_blank"
+                    class="overlay-button"
+                    >Probar <span class="arrow">&#10140;</span></a
+                  >
+                </div>
+                <div class="project-description">
+                  <h4>Proyecto Control clientes</h4>
+                  <h6>Angular - Typescript - Firebase</h6>
+                  <p>
+                    La página tiene el fin de hacer un control de clientes.
+                    Donde en el inicio se ve una lista de clientes la cual se
+                    puede ver si el usuario está iniciado sesión. Además desde
+                    la sección de "Configuración" se puede habilitar y
+                    deshabilitar el registro de nuevos usuarios para mantener un
+                    control. Toda la base de datos, autenticación y hosting es
+                    manejado desde firebase.
+                  </p>
+                </div>
+              </div>
+              <br />
+              <hr />
               <div class="contedor-proyecto-descripcion">
                 <div class="project-description">
-                  <h4>Music App FrontEnd y BackEnd</h4>
-                  <h6>Proyecto creado con Next.js, es un proyecto en React.</h6>
+                  <h4>Proyecto aplicación web música</h4>
+                  <h6>Next.js - React - typescript - Supabase</h6>
                   <p>
-                    Proyecto creado en react con front y backend, con el uso de
-                    stripe api para generar pagos y subscripciones, y "supabase"
-                    para generar una base de datos. Los invito a registrarse,
-                    subscribirse (ingresando una tarjeta ficticia) y ver la
-                    página.
+                    Estándo logueado en la página podemos escuchar, y cargar
+                    nuestra propia música. Si no se puede visualizar es porque
+                    supabase luego de una semana sin usar pone en suspensión el
+                    proyecto.
                   </p>
                 </div>
                 <div class="project-box">
@@ -156,7 +185,7 @@
                     href="https://jordimusic.vercel.app/"
                     target="_blank"
                     class="overlay-button"
-                    >Live Demo<span class="arrow">&#10140;</span></a
+                    >Probar <span class="arrow">&#10140;</span></a
                   >
                 </div>
               </div>
@@ -173,15 +202,17 @@
                     href="https://jordi-project-gns6zgpmp-jordivann.vercel.app/"
                     target="_blank"
                     class="overlay-button"
-                    >Live Demo<span class="arrow">&#10140;</span></a
+                    >Probar <span class="arrow">&#10140;</span></a
                   >
                 </div>
                 <div class="project-description">
-                  <h4>Clon airbnb FrontEnd y BackEnd</h4>
-                  <h6>Proyecto creado con Next.js, es un proyecto en React.</h6>
+                  <h4>Clon airbnb</h4>
+                  <h6>Next.js - React - MongoDB</h6>
                   <p>
-                    Está dividido en componentes lo que lo hace muy eficiente,
-                    más que nada para el uso de datos grandes.
+                    Aplicación clon de airbnb, donde se pueden manejar reservas,
+                    mostrandolas en el calendario, si hay reserva no se va a
+                    poder hacer la reserva. Actualmente en suspensión por tiempo
+                    establecido en Mongo.
                   </p>
                 </div>
               </div>
@@ -196,7 +227,7 @@
                     Elaboración de planillas de cálculo de control, registro y
                     administración. Y diseño de Análisis de datos. En las
                     imágenes podemos ver 3 análisis hechos de la misma base de
-                    datos.
+                    datos. El análisis está desactualizado.
                   </p>
                 </div>
                 <div class="project-box">
@@ -244,7 +275,7 @@
                         class="carousel-control-prev-icon"
                         aria-hidden="true"
                       ></span>
-                      <span class="visually-hidden"><</span>
+                      <span class="visually-hidden"></span>
                     </button>
                     <button
                       class="carousel-control-next"
@@ -282,6 +313,21 @@
           </div>
 
           <div class="row">
+            <div
+              class="col-lg-4 col-md-6 align-items-stretch mt-4"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
+              <div class="icon-box">
+                <div class="icon"><i class="bi bi-code"></i></div>
+                <h4>
+                  <a href="./assets/pdf/Certificado Angular.pdf" target="_blank"
+                    >Angular Fullstack</a
+                  >
+                </h4>
+                <p>Click en el título para ver certificado</p>
+              </div>
+            </div>
             <div
               class="col-lg-4 col-md-6 align-items-stretch mt-4"
               data-aos="zoom-in"
@@ -481,23 +527,31 @@
             <div class="swiper-wrapper align-items-center">
               <div class="swiper-slide">
                 <img
-                  src="assets/img/clients/html5.png"
-                  height="210px"
-                  class="img-fluid"
-                  alt=""
+                src="assets/img/clients/html5.png"
+                height="210px"
+                class="img-fluid"
+                alt=""
                 />
               </div>
               <div class="swiper-slide">
                 <img
-                  src="assets/img/clients/css.png"
-                  height="210px"
-                  class="img-fluid"
-                  alt=""
+                src="assets/img/clients/css.png"
+                height="210px"
+                class="img-fluid"
+                alt=""
                 />
               </div>
               <div class="swiper-slide">
                 <img
-                  src="assets/img/clients/js.png"
+                src="assets/img/clients/js.png"
+                height="210px"
+                class="img-fluid"
+                alt=""
+                />
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="assets/img/clients/Angular.png"
                   height="210px"
                   class="img-fluid"
                   alt=""
@@ -622,7 +676,7 @@
         <div class="container" data-aos="fade-up">
           <div class="section-title">
             <h2>Portfolio</h2>
-            <p><em>Portfolio componentes</em></p>
+            <p><em>Portfolio componentes CSS</em></p>
           </div>
 
           <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -1178,12 +1232,13 @@
             >
               <h3>
                 Hola! &#128075;&#127996; Mi nombre es <em>Jordi Van Norden</em>,
-                soy Desarrollador de páginas web, dedicado a frontend.
+                soy Desarrollador de páginas web, dedicado a frontend, con
+                experiencia en backend.
               </h3>
               <h6>
-                Soy amante de la tecnología, mi sueño es poder ayudar y
-                construir una carrera laboral con lo aprendido y lo que queda
-                por aprender.
+                Me encanta aprender cosas nuevas, y busco construir un camino
+                con todo lo aprendido. Siempre dispuesto a conocer nuevas
+                experiencias, conocimientos y culturas.
               </h6>
               <ul>
                 <li>
@@ -1218,20 +1273,6 @@
               </ul>
             </div>
           </div>
-          <!-- <div class="col-12 order-3" >
-          <hr>
-          <p class="fst-italic">
-            Leí que responder algúnas preguntas dan "pistas", por así decirlo, de cómo es una persona, así que tomé un par que me parecieron interesante:<br>
-          </p>
-          <h6><strong><em>¿Cómo es tú habitación?</em></strong></h6>
-          <p>
-            Dicen que se puede conocer una parte de una persona sabiendo como es una habitación. La mía es mi lugar de trabajo, estudio y descanso. Es mi lugar, mi espacio seguro, donde la cretavidad brota, ya que es un espacio verde, pues <em>fanático de las plantas</em>, mientras más verde... mejor.
-          </p>
-          <h6><strong><em>¿Qué tan amenudo pensas sobre lo que te ocurre/sientes?</em></strong></h6>
-          <p>Yo creo que soy una persona que reflexiona bastante, intento escucharme para saber como me siento en distintos entornos, con distintas personas, en distintas situaciones. Intento cuidarme lo más posible, pero esto no quita que no me guste salir de mi <em>"zona de confort"</em>, ya que pienso que es una forma de aprendizaje para cualqiuera.
-          Además de pensar como me siento yo, me gusta pensar en como <em>mi alrededor</em> se siente, y si puedo ayudar no dudo en hacerlo.</p>
-
-        </div> -->
         </div>
       </section>
       <!-- End About Section -->
