@@ -38,3 +38,7 @@
   --font-size-base: 16px;
 }
 
+body{
+  margin:0;
+  padding:0;
+}

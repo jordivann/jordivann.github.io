@@ -4,15 +4,18 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './styles/Hero3D.css';
 
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero3D() {
   const containerRef = useRef(null);
   const cameraRef = useRef(null);
   const rendererRef = useRef(null);
-  const text1Ref = useRef(null);
-  const text2Ref = useRef(null);
-  const text3Ref = useRef(null);
+  const composerRef = useRef(null);
+  const textRefs = [useRef(null), useRef(null), useRef(null), useRef(null), useRef(null)];
 
   useEffect(() => {
     const container = containerRef.current;
@@ -20,10 +23,10 @@ export default function Hero3D() {
     const height = container.clientHeight;
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x111111);
+    scene.background = new THREE.Color(0x0e0e0e);
 
     const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 100);
-    camera.position.set(0, 0, 6);
+    camera.position.set(0, 2, 6);
     cameraRef.current = camera;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -31,36 +34,38 @@ export default function Hero3D() {
     container.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
+    const composer = new EffectComposer(renderer);
+    composer.addPass(new RenderPass(scene, camera));
+    const bloomPass = new UnrealBloomPass(new THREE.Vector2(width, height), 0.7, 0.4, 0.85);
+    composer.addPass(bloomPass);
+    composerRef.current = composer;
+
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     directionalLight.position.set(5, 5, 10);
     scene.add(directionalLight);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
     scene.add(ambientLight);
 
-    const figura1 = new THREE.Mesh(
-      new THREE.IcosahedronGeometry(1.5),
-      new THREE.MeshStandardMaterial({ color: 0xff0055 })
-    );
-    figura1.position.set(0, 0, 0);
-    scene.add(figura1);
+    const figures = [
+      new THREE.Mesh(new THREE.IcosahedronGeometry(1.5), new THREE.MeshStandardMaterial({ color: 0xff0055 })),
+      new THREE.Mesh(new THREE.OctahedronGeometry(1.5, 1), new THREE.MeshStandardMaterial({ color: 0x2299ff })),
+      new THREE.Mesh(new THREE.TorusKnotGeometry(1, 0.3, 100, 16), new THREE.MeshStandardMaterial({ color: 0x00ff99 })),
+      new THREE.Mesh(new THREE.TorusGeometry(1.3, 0.4, 16, 100), new THREE.MeshStandardMaterial({ color: 0xffff00 })),
+    ];
 
-    const figura2 = new THREE.Mesh(
-      new THREE.OctahedronGeometry(1.5, 1),
-      new THREE.MeshStandardMaterial({ color: 0x2299ff })
-    );
-    figura2.position.set(-4, 0, -8);
-    scene.add(figura2);
+    const positions = [
+      new THREE.Vector3(0, 0, 0),
+      new THREE.Vector3(-4, 0, -8),
+      new THREE.Vector3(6, 0, -10),
+      new THREE.Vector3(2, -2, -18),
+      new THREE.Vector3(2, -6, -22),
+    ];
 
-    const figura3 = new THREE.Mesh(
-      new THREE.TorusKnotGeometry(1, 0.3, 100, 16),
-      new THREE.MeshStandardMaterial({ color: 0x00ff99 })
-    );
-    figura3.position.set(6, 0, -10);
-    scene.add(figura3);
-
-    const figures = [figura1, figura2, figura3];
-    const texts = [text1Ref, text2Ref, text3Ref];
+    figures.forEach((f, i) => {
+      f.position.copy(positions[i]);
+      scene.add(f);
+    });
 
     const targetPosition = new THREE.Vector3();
     const currentPosition = new THREE.Vector3(0, 2, 6);
@@ -79,7 +84,7 @@ export default function Hero3D() {
         f.rotation.y += 0.003 * (i + 1);
       });
 
-      renderer.render(scene, camera);
+      composer.render();
     };
 
     animate();
@@ -87,29 +92,29 @@ export default function Hero3D() {
     ScrollTrigger.create({
       trigger: container,
       start: 'top top',
-      end: '+=6000',
+      end: '+=10000',
       scrub: true,
       pin: true,
       onUpdate: self => {
         const progress = self.progress;
-        const index = Math.floor(progress * 3);
-        const p = progress * 3 - index;
+        const index = Math.floor(progress * 5);
+        const p = progress * 5 - index;
 
-        const start = figures[index] ? figures[index].position : figures[0].position;
-        const end = figures[index + 1] ? figures[index + 1].position : figures[index].position;
+        const start = positions[index] || positions[0];
+        const end = positions[index + 1] || positions[index];
 
         targetPosition.lerpVectors(start, end, p);
-        currentPosition.set(targetPosition.x + 5, 2, targetPosition.z + 6);
+        currentPosition.set(targetPosition.x + 5, targetPosition.y + 2, targetPosition.z + 6);
         lookAtTarget.copy(targetPosition);
 
-        texts.forEach((ref, i) => {
+        textRefs.forEach((ref, i) => {
           const visible = i === index;
           gsap.to(ref.current, {
             opacity: visible ? 1 : 0,
             filter: visible ? 'blur(0px)' : 'blur(8px)',
             transform: visible ? 'translateY(0)' : 'translateY(-20px)',
-            duration: 0.5,
-            ease: 'power2.out',
+            duration: 0.6,
+            ease: 'power3.out',
           });
         });
       }
@@ -123,7 +128,7 @@ export default function Hero3D() {
   }, []);
 
   return (
-    <div style={{ height: '600vh', position: 'relative' }}>
+    <div style={{ height: '1000vh', position: 'relative', margin: 0, padding: 0 }}>
       <div
         ref={containerRef}
         style={{
@@ -133,32 +138,25 @@ export default function Hero3D() {
           height: '100vh',
           overflow: 'hidden',
           zIndex: 1,
+          margin: 0,
+          padding: 0,
         }}
       />
-      <div
-        style={{
-          position: 'fixed',
-          top: '30%',
-          left: '10%',
-          width: '80%',
-          color: 'white',
-          fontSize: '2.5rem',
-          fontWeight: '500',
-          fontFamily: "'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif",
-          letterSpacing: '0.05em',
-          zIndex: 10,
-          lineHeight: 1.3,
-          textShadow: '0 0 20px rgba(255, 255, 255, 0.15)',
-        }}
-      >
-        <div ref={text1Ref} style={{ position: 'absolute', opacity: 1 }}>
-          👨‍💻 Soy Jordi, desarrollador fullstack.
+      <div className="hero3d-text-wrapper">
+        <div ref={textRefs[0]} className="hero3d-text t1">
+          👨‍💻 <strong>Soy Jordi</strong>, desarrollador fullstack.
         </div>
-        <div ref={text2Ref} style={{ position: 'absolute', opacity: 0 }}>
-          🎨 El frontend es la capa visual interactiva.
+        <div ref={textRefs[1]} className="hero3d-text t2">
+          🎨 El <strong>frontend</strong> es la capa visual interactiva.
         </div>
-        <div ref={text3Ref} style={{ position: 'absolute', opacity: 0 }}>
-          🧠 El backend conecta, guarda y procesa todo.
+        <div ref={textRefs[2]} className="hero3d-text t3">
+          🧠 El <strong>backend</strong> conecta, guarda y procesa todo.
+        </div>
+        <div ref={textRefs[3]} className="hero3d-text t4">
+          🚀 Con visión clara y código limpio, <strong>todo despega</strong>.
+        </div>
+        <div ref={textRefs[4]} className="hero3d-text t5">
+          🙌 Gracias por <strong>visitar</strong> mi universo creativo.
         </div>
       </div>
     </div>
