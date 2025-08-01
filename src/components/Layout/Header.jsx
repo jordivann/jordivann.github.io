@@ -1,13 +1,25 @@
 // src/components/Layout/Header.jsx
 import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import '../styles/Header.css';
 
 export default function Header() {
+  const [hide, setHide] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = (e) => {
+      const progress = e.detail.progress;
+      setHide(progress > 0 && progress < 1);
+    };
+
+    window.addEventListener("hero3d-scroll", handleScroll);
+    return () => window.removeEventListener("hero3d-scroll", handleScroll);
+  }, []);
   return (
-    <header className="header">
+    <header id="main-header" className={`header ${hide ? 'hide-header' : ''}`}>
       <div className="header-container">
         <NavLink to="/" className="logo">
-          Jordi Dev
+          Jordi.
         </NavLink>
 
         <nav className="nav">

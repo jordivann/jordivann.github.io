@@ -103,9 +103,13 @@ export default function Hero3D() {
       pin: true,
       onUpdate: self => {
         const progress = self.progress;
+          window.dispatchEvent(new CustomEvent("hero3d-scroll", {
+            detail: { progress }
+          }));
         const steps = textRefs.length;
         const index = Math.min(Math.floor(progress * steps), steps - 1);
         const p = progress * steps - index;
+
 
         const start = positions[index] || positions[positions.length - 1];
         const end = positions[index + 1] || positions[positions.length - 1];
