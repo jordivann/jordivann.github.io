@@ -1,16 +1,18 @@
 // src/App.jsx
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
-
 // Páginas (pueden estar en src/pages/)
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound'; // 404
+import React from 'react';
 
 function App() {
   return (
+    <React.StrictMode>
+
     <HashRouter>
       <Routes>
         <Route path="/" element={<MainLayout />}>
@@ -22,6 +24,7 @@ function App() {
         </Route>
       </Routes>
     </HashRouter>
+    </React.StrictMode>
   );
 }
 
