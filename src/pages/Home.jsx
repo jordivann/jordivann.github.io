@@ -6,7 +6,10 @@ import './styles/Home.css';
 export default function Home() {
   return (
     <>
+      <div className="home-container">
+
         <Hero3D />
+      </div>
 
     </>
   );

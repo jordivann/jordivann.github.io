@@ -8,6 +8,8 @@ import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 
+import { Link } from 'react-router-dom';
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero3D() {
@@ -67,6 +69,10 @@ export default function Hero3D() {
       scene.add(f);
     });
 
+    const dummy = new THREE.Object3D();
+    dummy.position.copy(positions[4]);
+    scene.add(dummy);
+
     const targetPosition = new THREE.Vector3();
     const currentPosition = new THREE.Vector3(0, 2, 6);
     const lookAtTarget = new THREE.Vector3();
@@ -97,11 +103,12 @@ export default function Hero3D() {
       pin: true,
       onUpdate: self => {
         const progress = self.progress;
-        const index = Math.floor(progress * 5);
-        const p = progress * 5 - index;
+        const steps = textRefs.length;
+        const index = Math.min(Math.floor(progress * steps), steps - 1);
+        const p = progress * steps - index;
 
-        const start = positions[index] || positions[0];
-        const end = positions[index + 1] || positions[index];
+        const start = positions[index] || positions[positions.length - 1];
+        const end = positions[index + 1] || positions[positions.length - 1];
 
         targetPosition.lerpVectors(start, end, p);
         currentPosition.set(targetPosition.x + 5, targetPosition.y + 2, targetPosition.z + 6);
@@ -144,19 +151,20 @@ export default function Hero3D() {
       />
       <div className="hero3d-text-wrapper">
         <div ref={textRefs[0]} className="hero3d-text t1">
-          👨‍💻 <strong>Soy Jordi</strong>, desarrollador fullstack.
+          👨‍💻 Soy <strong>Jordi Van Norden</strong>, programador fullstack con visión creativa y pasión por lo que hago.
         </div>
         <div ref={textRefs[1]} className="hero3d-text t2">
-          🎨 El <strong>frontend</strong> es la capa visual interactiva.
+          ⚛️ Desarrollo <strong>frontend</strong> con React, Astro y más. Interfaces modernas y adaptables.
         </div>
         <div ref={textRefs[2]} className="hero3d-text t3">
-          🧠 El <strong>backend</strong> conecta, guarda y procesa todo.
+          🔧 En el <strong>backend</strong>: Node.js, Express, PostgreSQL, seguridad y APIs eficientes.
         </div>
         <div ref={textRefs[3]} className="hero3d-text t4">
-          🚀 Con visión clara y código limpio, <strong>todo despega</strong>.
+          🧩 Escribo código <strong>limpio, escalable y mantenible</strong>. Buenas prácticas como base.
         </div>
         <div ref={textRefs[4]} className="hero3d-text t5">
-          🙌 Gracias por <strong>visitar</strong> mi universo creativo.
+          🙌 Gracias por <strong>visitar</strong> mi universo creativo.<br />
+          <Link to="/about" className="hero3d-btn">Conocer más sobre mí</Link>
         </div>
       </div>
     </div>
