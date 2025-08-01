@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+
+
+
+.fade-in {
+  opacity: 1 !important;
+  transform: translateY(0px) scale(1) !important;
+  filter: blur(0px) !important;
+}
+
+.fade-out {
+  opacity: 0 !important;
+  transform: translateY(-20px) scale(0.95) !important;
+  filter: blur(8px) !important;
+}
+
+.hero3d-text-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 10;
+  font-family: 'Inter', sans-serif;
+}
+
+.hero3d-text {
+  position: absolute;
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  
+  /* Card styling */
+  background: rgba(15, 15, 15, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.8rem 2.2rem;
+  
+  /* Typography */
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.9);
+  
+  /* Layout */
+  max-width: 350px;
+  min-width: 280px;
+  
+  /* Subtle glow */
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.hero3d-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.03) 0%, 
+    rgba(255, 255, 255, 0.01) 100%);
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.hero3d-text.fade-in::before {
+  opacity: 1;
+}
+
+.hero3d-text strong {
+  color: rgba(255, 255, 255, 0.98);
+  font-weight: 500;
+  position: relative;
+}
+
+.hero3d-text strong::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+  transition: width 0.4s ease 0.2s;
+}
+
+.hero3d-text.fade-in strong::after {
+  width: 100%;
+}
+
+/* Card positions */
+.t1 {
+  top: 15%;
+  left: 6%;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 400;
+  max-width: 400px;
+}
+
+.t1 strong {
+  font-weight: 600;
+}
+
+.t2 {
+  top: 35%;
+  right: 8%;
+  text-align: left;
+}
+
+.t3 {
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  max-width: 380px;
+}
+
+.t4 {
+  top: 50%;
+  left: 4%;
+  font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+  font-weight: 400;
+  max-width: 420px;
+}
+
+.t5 {
+  bottom: 12%;
+  right: 6%;
+  text-align: left;
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 320px;
+  background: rgba(10, 10, 10, 0.9);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Subtle corner indicator */
+.hero3d-text::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease 0.4s;
+}
+
+.hero3d-text.fade-in::after {
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero3d-text {
+    padding: 1.4rem 1.8rem;
+    max-width: 280px;
+    min-width: 240px;
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+  }
+  
+  .t1 {
+    top: 12%;
+    left: 4%;
+    max-width: 300px;
+    font-size: clamp(1rem, 5vw, 1.3rem);
+  }
+  
+  .t2 {
+    top: 32%;
+    right: 4%;
+  }
+  
+  .t3 {
+    top: 18%;
+    max-width: 320px;
+  }
+  
+  .t4 {
+    top: 48%;
+    left: 4%;
+    max-width: 320px;
+  }
+  
+  .t5 {
+    bottom: 10%;
+    right: 4%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero3d-text {
+    padding: 1.2rem 1.5rem;
+    max-width: 260px;
+    min-width: 220px;
+  }
+  
+  .t1, .t2, .t3, .t4 {
+    max-width: 280px;
+  }
+  
+  .t5 {
+    max-width: 250px;
+  }
+}
+
+/* Canvas styling */
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}

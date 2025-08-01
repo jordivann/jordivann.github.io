@@ -1,0 +1,30 @@
+.notfound-container {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.notfound-title {
+  font-size: 6rem;
+  font-weight: 900;
+  color: var(--color-primary);
+}
+
+.notfound-message {
+  font-size: 1.25rem;
+  color: var(--color-gray-oscuro);
+  margin-bottom: 2rem;
+}
+
+.notfound-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-blanco);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.notfound-button:hover {
+  background-color: var(--color-verde-bosque);
+}
