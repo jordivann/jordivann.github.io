@@ -5,6 +5,6 @@ import react from '@vitejs/plugin-react-swc';
 const repoName = 'jordivann.github.io';
 
 export default defineConfig({
-  base: `/`,
+  base: `/${repoName}/`,
   plugins: [react()],
 });
