@@ -1,9 +1,9 @@
-import WorkingSection from "../components/WorkingSection";
+import Playground from "../components/Playground/Playground";
 
 export default function Projects() {
   return (
     <>
-    <WorkingSection />
+    <Playground />
     </>
   );
 }

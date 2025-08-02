@@ -1,0 +1,40 @@
+.code-viewer {
+  background-color: var(--color-dark);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.code-header h4 {
+  margin: 0;
+  color: var(--color-light);
+}
+
+.copy-btn {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: var(--color-primary-hover, #159e6f);
+}
+
+.code-note {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  margin-top: 0.5rem;
+}

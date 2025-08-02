@@ -1,0 +1,41 @@
+.app-card {
+  background-color: var(--color-light);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  text-align: left;
+}
+
+.app-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.app-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--color-dark);
+}
+
+.app-category {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.app-description {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--color-gray);
+}

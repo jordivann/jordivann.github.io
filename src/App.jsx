@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
+import AppViewer from './components/Playground/routes/AppViewer';
 import NotFound from './pages/NotFound'; // 404
 import { AboutCartProvider } from './context/AboutCartContext';
 import { ThemeProvider } from './context/ThemeContext';
@@ -21,6 +22,7 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="projects" element={<Projects />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="/playground/:id" element={<AppViewer />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
