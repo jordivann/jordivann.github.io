@@ -8,9 +8,10 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound'; // 404
-
+import { AboutCartProvider } from './context/AboutCartContext';
 function App() {
   return (
+    <AboutCartProvider>
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
@@ -20,6 +21,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
+    </AboutCartProvider>
   );
 }
 
