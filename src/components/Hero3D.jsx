@@ -17,6 +17,7 @@ export default function Hero3D() {
   const cameraRef = useRef(null);
   const rendererRef = useRef(null);
   const composerRef = useRef(null);
+  const figuresRef = useRef([]);
   const textRefs = [useRef(null), useRef(null), useRef(null), useRef(null), useRef(null)];
 
   useEffect(() => {
@@ -49,12 +50,26 @@ export default function Hero3D() {
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
     scene.add(ambientLight);
 
-    const figures = [
-      new THREE.Mesh(new THREE.IcosahedronGeometry(1.5), new THREE.MeshStandardMaterial({ color: 0xff0055 })),
-      new THREE.Mesh(new THREE.OctahedronGeometry(1.5, 1), new THREE.MeshStandardMaterial({ color: 0x2299ff })),
-      new THREE.Mesh(new THREE.TorusKnotGeometry(1, 0.3, 100, 16), new THREE.MeshStandardMaterial({ color: 0x00ff99 })),
-      new THREE.Mesh(new THREE.TorusGeometry(1.3, 0.4, 16, 100), new THREE.MeshStandardMaterial({ color: 0xffff00 })),
+    const themeColors = getThemeColors();
+
+    const geometries = [
+      new THREE.IcosahedronGeometry(1.5),
+      new THREE.OctahedronGeometry(1.5, 1),
+      new THREE.TorusKnotGeometry(1, 0.3, 100, 16),
+      new THREE.TorusGeometry(1.3, 0.4, 16, 100)
     ];
+
+    const figures = geometries.map((geom, i) => {
+      const material = new THREE.MeshStandardMaterial({
+        color: themeColors[i % themeColors.length],
+        metalness: 0.5,
+        roughness: 0.3
+      });
+      return new THREE.Mesh(geom, material);
+    });
+
+    
+    figuresRef.current = figures;
 
     const positions = [
       new THREE.Vector3(0, 0, 0),
@@ -130,13 +145,33 @@ export default function Hero3D() {
         });
       }
     });
+    const updateFigureColors = () => {
+      const newColors = getThemeColors();
+      figuresRef.current.forEach((fig, i) => {
+        fig.material.color = newColors[i % newColors.length];
+      });
+    };
+
+    window.addEventListener('theme-changed', updateFigureColors);
 
     return () => {
       ScrollTrigger.getAll().forEach(t => t.kill());
+      window.removeEventListener('theme-changed', updateFigureColors);
       container.removeChild(renderer.domElement);
       renderer.dispose();
     };
+
   }, []);
+
+  function getThemeColors() {
+  const styles = getComputedStyle(document.documentElement);
+  return [
+    new THREE.Color(styles.getPropertyValue('--color-primary').trim()),
+    new THREE.Color(styles.getPropertyValue('--color-secondary').trim()),
+    new THREE.Color(styles.getPropertyValue('--color-celeste').trim()),
+    new THREE.Color(styles.getPropertyValue('--color-rosado').trim())
+  ];
+}
 
   return (
     <div style={{ height: '1000vh', position: 'relative', margin: 0, padding: 0 }}>

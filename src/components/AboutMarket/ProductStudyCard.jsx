@@ -1,4 +1,6 @@
 import './styles/ProductStudyCard.css';
+import { useState } from 'react';
+import MiniLoader from '../Loader/MiniLoader';
 
 export default function ProductStudyCard({ product, onAddToCart }) {
   const {
@@ -12,7 +14,14 @@ export default function ProductStudyCard({ product, onAddToCart }) {
     image,
     inCart
   } = product;
-
+  const [loading, setLoading] = useState(false);
+  const handleAdd = () => {
+    setLoading(true);
+    setTimeout(() => {
+      onAddToCart();
+      setLoading(false);
+    }, 600); // Delay simulado
+  };
   const renderStars = () => {
     const stars = [];
     const full = Math.floor(rating);
@@ -52,12 +61,13 @@ export default function ProductStudyCard({ product, onAddToCart }) {
         </div>
 
         <button
-          className="product-btn"
-          onClick={onAddToCart}
-          disabled={inCart}
-        >
-          {inCart ? 'Agregado' : 'Agregar al carrito'}
-        </button>
+        className="product-btn"
+        onClick={handleAdd}
+        disabled={product.inCart || loading}
+      >
+        {product.inCart ? 'Agregado' : loading ? 'Agregando' : 'Agregar al carrito'}
+        {loading && <MiniLoader />}
+      </button>
       </div>
     </div>
   );

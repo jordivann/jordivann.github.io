@@ -1,6 +1,7 @@
 // src/components/Layout/Header.jsx
 import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import ThemeToggle from './ThemeToggle';
 import '../styles/Header.css';
 
 export default function Header() {
@@ -21,6 +22,9 @@ export default function Header() {
         <NavLink to="/" className="logo">
           Jordi.
         </NavLink>
+        <div className="header-right">
+          <ThemeToggle />
+        </div>
 
         <nav className="nav">
           <NavLink to="/" className="nav-link">Inicio</NavLink>

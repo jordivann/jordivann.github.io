@@ -1,0 +1,14 @@
+.magic-theme-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-primary);
+  transition: transform 0.3s ease;
+  margin-left: auto;
+}
+
+.magic-theme-btn:hover {
+  transform: rotate(20deg) scale(1.2);
+  color: var(--color-secondary);
+}
