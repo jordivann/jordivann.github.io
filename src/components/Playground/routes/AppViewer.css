@@ -1,0 +1,78 @@
+.app-viewer {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--color-light);
+  /* background: rgba(10, 10, 10, 0.5); */
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.app-viewer h2 {
+  font-size: 2rem;
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.app-viewer p {
+  text-align: center;
+  color: var(--color-muted);
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.demo-box {
+  border: 2px solid var(--color-primary);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 12px var(--color-primary);
+}
+
+.code-toggle {
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+  display: block;
+  margin-inline: auto;
+}
+
+.code-toggle:hover {
+  background-color: var(--color-primary-hover, #159e6f);
+  transform: scale(1.03);
+}
+
+.tabs-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tabs-toggle button {
+  padding: 0.4rem 1rem;
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-light);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tabs-toggle button.active,
+.tabs-toggle button:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
