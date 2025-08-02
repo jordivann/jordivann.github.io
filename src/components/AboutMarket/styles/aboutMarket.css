@@ -6,6 +6,7 @@
   color: var(--color-blanco);
   min-height: 100vh;
   font-family: var(--font-main, sans-serif);
+
 }
 .open-cart-btn {
   position: fixed;
@@ -92,7 +93,7 @@
   padding-top: 0.5rem;
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
 }
 
