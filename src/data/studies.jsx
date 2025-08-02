@@ -34,6 +34,30 @@ const studies = [
     rating: 4,
     image: "/images/secundario.png",
     inCart: false
+  },
+    {
+    id: "4",
+    title: "FrontEnd Developer",
+    description: "Desarrollo FrontEnd - Bases Sólidas CSS, HTML y js. Desarrollo de webapps en React con javascript y typescript. - ",
+    category: "Curso",
+    year: 2022,
+    price: 2024,
+    discountedPrice: 2008,
+    rating: 4,
+    image: "/images/secundario.png",
+    inCart: false
+  },
+    {
+    id: "5",
+    title: "BackEnd Devolper - Node.",
+    description: "Desarrollo BackEnd - Node.js + Express - ",
+    category: "Curso",
+    year: 2025,
+    price: 2025,
+    discountedPrice: 2025,
+    rating: 4,
+    image: "/images/secundario.png",
+    inCart: false
   }
 ];
 

@@ -14,11 +14,26 @@ export function AboutCartProvider({ children }) {
     localStorage.setItem('about_cart', JSON.stringify(cart));
   }, [cart]);
 
+
   const addToCart = (product) => {
     setCart(prev => {
-      if (prev.find(p => p.id === product.id)) return prev;
-      return [...prev, { ...product, inCart: true }];
+      const existing = prev.find(p => p.id === product.id);
+      if (existing) {
+        return prev.map(p =>
+          p.id === product.id ? { ...p, quantity: p.quantity + 1 } : p
+        );
+      } else {
+        return [...prev, { ...product, quantity: 1 }];
+      }
     });
+  };
+
+  const adjustQuantity = (id, delta) => {
+    setCart(prev =>
+      prev
+        .map(p => (p.id === id ? { ...p, quantity: p.quantity + delta } : p))
+        .filter(p => p.quantity > 0)
+    );
   };
 
   const removeFromCart = (id) => {
@@ -28,7 +43,7 @@ export function AboutCartProvider({ children }) {
   const clearCart = () => setCart([]);
 
   return (
-    <AboutCartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
+    <AboutCartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart , adjustQuantity}}>
       {children}
     </AboutCartContext.Provider>
   );

@@ -114,3 +114,29 @@
 .cart-clear:hover {
   background-color: #c62828;
 }
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+
+.quantity-controls button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.2rem 0.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.quantity-controls button:hover {
+  background-color: var(--color-secondary);
+}
+
+.quantity-controls span {
+  font-size: 0.9rem;
+  font-weight: bold;
+}

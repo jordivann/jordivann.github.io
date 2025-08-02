@@ -44,9 +44,11 @@ export default function AboutMarket() {
 
   return (
     <div className="about-market">
-              <button className="open-cart-btn" onClick={() => setShowCart(true)}>
-        🛒 Ver carrito ({cart.length})
-        </button>
+      <button className="open-cart-btn" onClick={() => setShowCart(true)}>
+        🛒 Ver carrito ({cart.reduce((sum, item) => sum + item.quantity, 0)})
+      </button>
+
+
       <aside className="market-sidebar">
         <input
           type="text"
