@@ -30,6 +30,8 @@ export default function Header() {
           <NavLink to="/" className="nav-link">Inicio</NavLink>
           <NavLink to="/about" className="nav-link">Sobre mí</NavLink>
           <NavLink to="/projects" className="nav-link">Playground</NavLink>
+          
+          <NavLink to="/blog" className="nav-link">Blog</NavLink>
           <NavLink to="/contact" className="nav-link">Contacto</NavLink>
         </nav>
       </div>
